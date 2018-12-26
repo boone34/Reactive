@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
+    <AssemblyName>TechNoir.Reactive</AssemblyName>
+    <RootNamespace>TechNoir.Reactive</RootNamespace>
+    <Copyright>Copyright © TechNoir 2018</Copyright>
+    <Description>Reactive Support</Description>
+    <Company>TechNoir</Company>
+    <Authors>Boone</Authors>
+    <PackageReleaseNotes>Created</PackageReleaseNotes>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Reactive" Version="4.1.2" />
+  </ItemGroup>
+</Project>
