@@ -29,7 +29,7 @@ namespace TechNoir.Reactive
         /// </summary>
         /// <typeparam name="T">The <paramref name="observable" /> type.</typeparam>
         /// <param name="disposables">The <see cref="CompositeDisposable" /> to add/remove/replace the <see cref="IDisposable" /> to.</param>
-        /// <param name="observable">The observable used to generate the <see cref="IDisposable" /> with <paramref name="disposable_func"/>.</param>
+        /// <param name="observable">The <see cref="IObservable{T}" /> used to generate the <see cref="IDisposable" /> with <paramref name="disposable_func"/>.</param>
         /// <param name="disposable_func">The function used to generate the <see cref="IDisposable" /> form <paramref name="observable"/> values.</param>
         /// <param name="null_nop">Determines weather null values are added to <paramref name="disposables" />. The default is false.</param>
         /// <exception cref="ArgumentNullException"><paramref name="disposables" /></exception>
@@ -69,7 +69,7 @@ namespace TechNoir.Reactive
         /// </summary>
         /// <typeparam name="T">The <paramref name="observable" /> type.</typeparam>
         /// <param name="disposables">The <see cref="CompositeDisposable" /> to add/remove/replace the <see cref="CompositeDisposable" /> to.</param>
-        /// <param name="observable">The observable used to generate the <see cref="CompositeDisposable" /> from <paramref name="disposable_funcs"/>.</param>
+        /// <param name="observable">The <see cref="IObservable{T}" /> used to generate the <see cref="CompositeDisposable" /> from <paramref name="disposable_funcs"/>.</param>
         /// <param name="null_nop">Determines weather null values are added to the <see cref="CompositeDisposable" />. Should be set to true to not add null values.</param>
         /// <param name="disposable_funcs">The functions used to generate the <see cref="CompositeDisposable" /> form <paramref name="observable"/> values.</param>
         /// <exception cref="ArgumentNullException">disposables</exception>
@@ -113,7 +113,7 @@ namespace TechNoir.Reactive
         /// </summary>
         /// <typeparam name="T">The <paramref name="observable" /> type.</typeparam>
         /// <param name="disposables">The <see cref="CompositeDisposable" /> to add/remove/replace the <see cref="CompositeDisposable" /> to.</param>
-        /// <param name="observable">The observable used to generate the <see cref="CompositeDisposable" /> from <paramref name="disposable_funcs"/>.</param>
+        /// <param name="observable">The <see cref="IObservable{T}" /> used to generate the <see cref="CompositeDisposable" /> from <paramref name="disposable_funcs"/>.</param>
         /// <param name="disposable_funcs">The functions used to generate the <see cref="CompositeDisposable" /> form <paramref name="observable"/> values.</param>
         public static void AddObservable<T>(this CompositeDisposable disposables, IObservable<T> observable, params Func<T, IDisposable>[] disposable_funcs)
         {
