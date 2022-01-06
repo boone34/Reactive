@@ -5,22 +5,26 @@ using System.Reactive.Linq;
 
 namespace TechNoir.Reactive
 {
-	public static class Extensions
+    /// <summary>
+    /// Class Extensions.
+    /// Implements Trigger and FirstSampleTrigger observable operators.
+    /// </summary>
+    public static class Extensions
 	{
-		private class TriggerObservable<TResult, TTrigger> : IDisposable
+        private class TriggerObservable<TResult, TTrigger> : IDisposable
 		{
-			private readonly object _Lock;
-			private readonly CompositeDisposable _Disposables;
-			private bool _Triggered;
-			private bool _TriggerCompleted;
-			private readonly IObserver<TResult> _Observer;
+            private readonly object              _Lock;
+            private readonly CompositeDisposable _Disposables;
+            private          bool                _Triggered;
+            private          bool                _TriggerCompleted;
+            private readonly IObserver<TResult>  _Observer;
 
-			public void Dispose()
+            public void Dispose()
 			{
 				_Disposables.Dispose();
 			}
 
-			private void SourceOnNext(TResult value)
+            private void SourceOnNext(TResult value)
 			{
 				lock (_Lock)
 				{
@@ -34,12 +38,12 @@ namespace TechNoir.Reactive
 				}
 			}
 
-			private void TriggerOnNext()
+            private void TriggerOnNext()
 			{
 				lock (_Lock) { _Triggered = true; }
 			}
 
-			private void TriggerOnCompleted()
+            private void TriggerOnCompleted()
 			{
 				lock (_Lock)
 				{
@@ -50,53 +54,68 @@ namespace TechNoir.Reactive
 				}
 			}
 
-			public TriggerObservable(IObservable<TResult> source, IObservable<TTrigger> trigger, IObserver<TResult> observer)
+            public TriggerObservable(IObservable<TResult> source, IObservable<TTrigger> trigger, IObserver<TResult> observer)
 			{
-				if (source == null) throw new ArgumentNullException(nameof(source));
+				if (source == null)  throw new ArgumentNullException(nameof(source));
 				if (trigger == null) throw new ArgumentNullException(nameof(trigger));
 
-				_Lock = new object();
+				_Lock        = new object();
 				_Disposables = new CompositeDisposable();
-				_Observer = observer;
+				_Observer    = observer;
 
 				_Disposables.Add(source.Subscribe(SourceOnNext, _Observer.OnError, _Observer.OnCompleted));
 				_Disposables.Add(trigger.Subscribe(_ => TriggerOnNext(), _Observer.OnError, TriggerOnCompleted));
 			}
 		}
 
-		public static IObservable<TResult> Trigger<TResult, TTrigger>(this IObservable<TResult> source, IObservable<TTrigger> trigger)
-		{
-			return Observable.Create<TResult>(observer => new TriggerObservable<TResult, TTrigger>(source, trigger, observer));
-		}
+        /// <summary>
+        /// Trigger operator which outputs a source value only after a trigger. Once a source value is output the trigger is reset.
+        ///
+        /// Source:  ----1----2----3----4----
+        /// Trigger: -------T---------T------
+        /// Output:  ---------2---------4----
+        ///
+        /// If either the source or trigger complete the output completes.
+        /// If either the source or trigger error the output error's.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the source observable.</typeparam>
+        /// <typeparam name="TTrigger">The type of the trigger observable.</typeparam>
+        /// <param name="source">The source observable.</param>
+        /// <param name="trigger">The trigger observable.</param>
+        /// <returns>IObservable&lt;TResult&gt;.</returns>
+        public static IObservable<TResult> Trigger<TResult, TTrigger>(this IObservable<TResult> source, IObservable<TTrigger> trigger)
+			=>
+		Observable.Create<TResult>(observer => new TriggerObservable<TResult, TTrigger>(source, trigger, observer))
+		;
 
-		private class FirstSampleTriggerObservable<TResult, TTrigger, TKey> : IDisposable
+        private class FirstSampleTriggerObservable<TResult, TTrigger, TKey> : IDisposable
 		{
-			private enum States
+            private enum States
 			{
-				Starting,
-				WaitingForOne,
-				WaitingForDistinct,
-				HaveDistinct,
-				Triggered
-			}
+                Starting,
+                WaitingForOne,
+                WaitingForDistinct,
+                HaveDistinct,
+                Triggered
+            }
 
-			private readonly object _Lock;
-			private States _State;
-			private readonly CompositeDisposable _Disposables;
-			private TResult _LastValue;
-			private TResult _NextValue;
-			private readonly IObserver<TResult> _Observer;
-			private readonly Func<TResult, TKey> _KeySelector;
-			private readonly IEqualityComparer<TKey> _KeyComparer;
+            private readonly object                  _Lock;
+            private          States                  _State;
+            private readonly CompositeDisposable     _Disposables;
+            private          TResult                 _LastValue;
+            private          TResult                 _NextValue;
+            private readonly IObserver<TResult>      _Observer;
+            private readonly Func<TResult, TKey>     _KeySelector;
+            private readonly IEqualityComparer<TKey> _KeyComparer;
 
-			public void Dispose()
+            public void Dispose()
 			{
 				_Disposables.Dispose();
 			}
 
-			private bool IsDistinct(TResult value) => !_KeyComparer.Equals(_KeySelector(_LastValue), _KeySelector(value));
+            private bool IsDistinct(TResult value) => !_KeyComparer.Equals(_KeySelector(_LastValue), _KeySelector(value));
 
-			private void SourceOnNext(TResult value)
+            private void SourceOnNext(TResult value)
 			{
 				lock (_Lock)
 				{
@@ -138,7 +157,7 @@ namespace TechNoir.Reactive
 				}
 			}
 
-			private void TriggerOnNext()
+            private void TriggerOnNext()
 			{
 				lock (_Lock)
 				{
@@ -162,7 +181,7 @@ namespace TechNoir.Reactive
 				}
 			}
 
-			private void TriggerOnCompleted()
+            private void TriggerOnCompleted()
 			{
 				lock (_Lock)
 				{
@@ -183,7 +202,7 @@ namespace TechNoir.Reactive
 				}
 			}
 
-			public FirstSampleTriggerObservable(IObservable<TResult> source, IObservable<TTrigger> trigger, IObserver<TResult> observer, Func<TResult, TKey> key_selector, IEqualityComparer<TKey> comparer)
+            public FirstSampleTriggerObservable(IObservable<TResult> source, IObservable<TTrigger> trigger, IObserver<TResult> observer, Func<TResult, TKey> key_selector, IEqualityComparer<TKey> comparer)
 			{
 				if (source == null) throw new ArgumentNullException(nameof(source));
 				if (trigger == null) throw new ArgumentNullException(nameof(trigger));
@@ -200,46 +219,98 @@ namespace TechNoir.Reactive
 			}
 		}
 
-		private class DefaultEqualityComparer<T> : IEqualityComparer<T>
+        private class DefaultEqualityComparer<T> : IEqualityComparer<T>
 		{
-			public bool Equals(T x, T y) => x == null ? y == null : x.Equals(y);
-			public int GetHashCode(T obj) => obj.GetHashCode();
+            public bool Equals(T x, T y)   => x == null ? y == null : x.Equals(y);
+            public int  GetHashCode(T obj) => obj.GetHashCode();
 		}
 
-		public static IObservable<TResult> FirstSampleTrigger<TResult, TTrigger>(this IObservable<TResult> source, IObservable<TTrigger> trigger)
-		{
-			return
-			Observable
-			.Create<TResult>
-			(observer => new FirstSampleTriggerObservable<TResult, TTrigger, TResult>(source, trigger, observer, val => val, new DefaultEqualityComparer<TResult>()))
-			;
-		}
+        /// <summary>
+        /// Trigger operator which outputs the first source value followed by distinct source values on trigger.
+        ///
+        /// Source:  ----1----2----3----4----3----4----5-----
+        /// Trigger: -------T---------T---------T---------T--
+        /// Output:  ----1------------3-------------------5--
+        ///
+        /// If either the source or trigger complete the output completes.
+        /// If either the source or trigger error the output error's.
+        ///
+        /// This operator facilitates keeping UI updated with the latest data. For example consider updating a data grid based on a search term entered
+        /// by a user where retrieving the data can take some time (ie. database look up etc).
+        /// 
+        /// Often this is addressed by throttling user criteria changes and performing the lookup on the throttled criteria. Doing this will delay the
+        /// first grid update. Also since the throttle time is not synchronized to the lookup time this can lead to un necessary lookups (when the throttle
+        /// time is less than the lookup time) or missed updates (when the throttle time is greater than the lookup time).
+        ///
+        /// This operator addresses these issues by emitting the first criteria immediately and then emitting changed criteria synchronized to lookup
+        /// completion.
+        ///
+        /// To use the <paramref name="source" /> should be an observable of the criteria, <paramref name="trigger" /> should be a observable of lookup
+        /// completion. Note that the type of the trigger is immaterial. Each time the operator emits a criteria a lookup should be initiated. In this
+        /// way the UI will be updated as quickly as lookups can be performed.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <typeparam name="TTrigger">The type of the trigger.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="trigger">The trigger.</param>
+        /// <returns>IObservable&lt;TResult&gt;.</returns>
+        public static IObservable<TResult> FirstSampleTrigger<TResult, TTrigger>(this IObservable<TResult> source, IObservable<TTrigger> trigger)
+			=>
+		Observable
+		.Create<TResult>
+		(observer => new FirstSampleTriggerObservable<TResult, TTrigger, TResult>(source, trigger, observer, val => val, new DefaultEqualityComparer<TResult>()))
+		;
 
-		public static IObservable<TResult> FirstSampleTrigger<TResult, TTrigger>(this IObservable<TResult> source, IObservable<TTrigger> trigger, IEqualityComparer<TResult> comparer)
-		{
-			return
-			Observable
-			.Create<TResult>
-			(observer => new FirstSampleTriggerObservable<TResult, TTrigger, TResult>(source, trigger, observer, val => val, comparer))
-			;
-		}
+        /// <summary>
+        /// Firsts the sample trigger.
+        /// <see cref="FirstSampleTrigger{TResult,TTrigger}(IObservable{TResult}, IObservable{TTrigger})"/>
+        /// </summary>
+        /// <typeparam name="TResult">The type of the t result.</typeparam>
+        /// <typeparam name="TTrigger">The type of the t trigger.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="trigger">The trigger.</param>
+        /// <param name="comparer">The comparer.</param>
+        /// <returns>IObservable&lt;TResult&gt;.</returns>
+        public static IObservable<TResult> FirstSampleTrigger<TResult, TTrigger>(this IObservable<TResult> source, IObservable<TTrigger> trigger, IEqualityComparer<TResult> comparer)
+			=>
+		Observable
+		.Create<TResult>
+		(observer => new FirstSampleTriggerObservable<TResult, TTrigger, TResult>(source, trigger, observer, val => val, comparer))
+		;
 
-		public static IObservable<TResult> FirstSampleTrigger<TResult, TTrigger, TKey>(this IObservable<TResult> source, IObservable<TTrigger> trigger, Func<TResult, TKey> key_selector)
-		{
-			return
-			Observable
-			.Create<TResult>
-			(observer => new FirstSampleTriggerObservable<TResult, TTrigger, TKey>(source, trigger, observer, key_selector, new DefaultEqualityComparer<TKey>()))
-			;
-		}
+        /// <summary>
+        /// Firsts the sample trigger.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the t result.</typeparam>
+        /// <typeparam name="TTrigger">The type of the t trigger.</typeparam>
+        /// <typeparam name="TKey">The type of the t key.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="trigger">The trigger.</param>
+        /// <param name="key_selector">The key selector.</param>
+        /// <returns>IObservable&lt;TResult&gt;.</returns>
+        public static IObservable<TResult> FirstSampleTrigger<TResult, TTrigger, TKey>(this IObservable<TResult> source, IObservable<TTrigger> trigger, Func<TResult, TKey> key_selector)
+			=>
+		Observable
+		.Create<TResult>
+		(observer => new FirstSampleTriggerObservable<TResult, TTrigger, TKey>(source, trigger, observer, key_selector, new DefaultEqualityComparer<TKey>()))
+		;
 
-		public static IObservable<TResult> FirstSampleTrigger<TResult, TTrigger, TKey>(this IObservable<TResult> source, IObservable<TTrigger> trigger, Func<TResult, TKey> key_selector, IEqualityComparer<TKey> comparer)
-		{
-			return
-			Observable
-			.Create<TResult>
-			(observer => new FirstSampleTriggerObservable<TResult, TTrigger, TKey>(source, trigger, observer, key_selector, comparer))
-			;
-		}
+        /// <summary>
+        /// Firsts the sample trigger.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the t result.</typeparam>
+        /// <typeparam name="TTrigger">The type of the t trigger.</typeparam>
+        /// <typeparam name="TKey">The type of the t key.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="trigger">The trigger.</param>
+        /// <param name="key_selector">The key selector.</param>
+        /// <param name="comparer">The comparer.</param>
+        /// <returns>IObservable&lt;TResult&gt;.</returns>
+        public static IObservable<TResult> FirstSampleTrigger<TResult, TTrigger, TKey>(this IObservable<TResult> source, IObservable<TTrigger> trigger, Func<TResult, TKey> key_selector, IEqualityComparer<TKey> comparer)
+			=>
+		Observable
+		.Create<TResult>
+		(observer => new FirstSampleTriggerObservable<TResult, TTrigger, TKey>(source, trigger, observer, key_selector, comparer))
+		;
 	}
 }
