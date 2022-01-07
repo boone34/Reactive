@@ -173,7 +173,7 @@ namespace TechNoir.Reactive
 						case States.HaveDistinct:
 							_Observer.OnNext(_NextValue);
 							_LastValue = _NextValue;
-							_State = States.Triggered;
+							_State = States.WaitingForDistinct;
 							break;
 						default:
 							throw new ArgumentOutOfRangeException();
