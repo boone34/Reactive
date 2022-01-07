@@ -6,17 +6,17 @@ using NUnit.Framework;
 namespace TechNoir.Reactive.Test
 {
     /// <summary>
-    /// Trigger operator Tests.
+    /// FirstSampleTrigger operator Tests.
     /// Implements the <see cref="BaseTest" />
     /// </summary>
     /// <seealso cref="BaseTest" />
     [TestFixture]
-    public class TriggerTests : BaseTest
+    public class FirstSampleTriggerTests : BaseTest
     {
         /// <summary>
         /// Source:  ----1---------2---------3
         /// Trigger: ---------T---------T---------T
-        /// Output:  --------------2---------3
+        /// Output:  ----1---------2---------3
         /// </summary>
         [Test, Order(100)]
         public void SourceFirst()
@@ -29,15 +29,15 @@ namespace TechNoir.Reactive.Test
             ReactiveAssert
             .AreElementsEqual
             (
-                OnNexts(300, 200, 2, i => i + 2),
-                scheduler.Start(() => source.Trigger(trigger), 0, 0, 900).Messages
+                OnNexts(100, 200, 3, i => i + 1),
+                scheduler.Start(() => source.FirstSampleTrigger(trigger), 0, 0, 900).Messages
             )
             ;
         }
 
         /// <summary>
         /// Source:  ---------1---------2---------3
-        /// Trigger: ----T---------T---------T
+        /// Trigger: ----T---------T---------t
         /// Output:  ---------1---------2---------3
         /// </summary>
         [Test, Order(200)]
@@ -52,7 +52,7 @@ namespace TechNoir.Reactive.Test
             .AreElementsEqual
             (
                 OnNexts(200, 200, 3, i => i + 1),
-                scheduler.Start(() => source.Trigger(trigger), 0, 0, 900).Messages
+                scheduler.Start(() => source.FirstSampleTrigger(trigger), 0, 0, 900).Messages
             )
             ;
         }
@@ -60,7 +60,7 @@ namespace TechNoir.Reactive.Test
         /// <summary>
         /// Source:  ----1---------2---------3---------|
         /// Trigger: ---------T---------T---------T---------|
-        /// Output:  --------------2---------3---------|
+        /// Output:  ----1---------2---------3---------|
         /// </summary>
         [Test, Order(300)]
         public void SourceCompletesFirst()
@@ -73,8 +73,8 @@ namespace TechNoir.Reactive.Test
             ReactiveAssert
             .AreElementsEqual
             (
-                OnNextsCompleted(300, 200, 2, i => i + 2),
-                scheduler.Start(() => source.Trigger(trigger), 0, 0, 900).Messages
+                OnNextsCompleted(100, 200, 3, i => i + 1),
+                scheduler.Start(() => source.FirstSampleTrigger(trigger), 0, 0, 900).Messages
             )
             ;
         }
@@ -82,7 +82,7 @@ namespace TechNoir.Reactive.Test
         /// <summary>
         /// Source:  ----1---------2---------3---------|
         /// Trigger: ---------T---------T---------|
-        /// Output:  --------------2---------3----|
+        /// Output:  ----1---------2---------3----|
         /// </summary>
         [Test, Order(400)]
         public void TriggerCompletesFirst()
@@ -95,8 +95,8 @@ namespace TechNoir.Reactive.Test
             ReactiveAssert
             .AreElementsEqual
             (
-                OnNexts(300, 200, 2, i => i + 2, _ => OnCompleted<int>(600)),
-                scheduler.Start(() => source.Trigger(trigger), 0, 0, 900).Messages
+                OnNexts(100, 200, 3, i => i + 1, _ => OnCompleted<int>(600)),
+                scheduler.Start(() => source.FirstSampleTrigger(trigger), 0, 0, 900).Messages
             )
             ;
         }
@@ -104,7 +104,7 @@ namespace TechNoir.Reactive.Test
         /// <summary>
         /// Source:  ----1---------2---------3---------#
         /// Trigger: ---------T---------T---------T---------|
-        /// Output:  --------------2---------3---------#
+        /// Output:  ----1---------2---------3---------#
         /// </summary>
         [Test, Order(500)]
         public void SourceError()
@@ -117,8 +117,8 @@ namespace TechNoir.Reactive.Test
             ReactiveAssert
             .AreElementsEqual
             (
-                OnNextsError(300, 200, 2, i => i + 2, e => e is Exception),
-                scheduler.Start(() => source.Trigger(trigger), 0, 0, 900).Messages
+                OnNextsError(100, 200, 3, i => i + 1, e => e is Exception),
+                scheduler.Start(() => source.FirstSampleTrigger(trigger), 0, 0, 900).Messages
             )
             ;
         }
@@ -126,7 +126,7 @@ namespace TechNoir.Reactive.Test
         /// <summary>
         /// Source:  ----1---------2---------3---------|
         /// Trigger: ---------T---------T---------#
-        /// Output:  --------------2---------3----#
+        /// Output:  ----1---------2---------3----#
         /// </summary>
         [Test, Order(600)]
         public void TriggerError()
@@ -139,8 +139,30 @@ namespace TechNoir.Reactive.Test
             ReactiveAssert
             .AreElementsEqual
             (
-                OnNexts(300, 200, 2, i => i + 2, _ => OnError<int>(600, e => e is Exception)),
-                scheduler.Start(() => source.Trigger(trigger), 0, 0, 900).Messages
+                OnNexts(100, 200, 3, i => i + 1, _ => OnError<int>(600, e => e is Exception)),
+                scheduler.Start(() => source.FirstSampleTrigger(trigger), 0, 0, 900).Messages
+            )
+            ;
+        }
+
+        /// <summary>
+        /// Source:  ---1---2---3---4---5---6
+        /// Trigger: ---------T-------T-------T
+        /// Output:  ---1-----2-------4-------6
+        /// </summary>
+        [Test, Order(700)]
+        public void FasterSource()
+        {
+            var scheduler = new TestScheduler();
+
+            var source  = scheduler.CreateHotObservable(OnNexts(100, 100, 6, i => i + 1));
+            var trigger = scheduler.CreateHotObservable(OnNexts(250, 200, 3, _ => Unit.Default));
+
+            ReactiveAssert
+            .AreElementsEqual
+            (
+                OnNexts(100, 200, 3, i => i + 2),
+                scheduler.Start(() => source.FirstSampleTrigger(trigger), 0, 0, 900).Messages
             )
             ;
         }
