@@ -230,7 +230,7 @@ namespace TechNoir.Reactive
         ///
         /// Source:  ----1----2----3----4----3----4----5-----
         /// Trigger: -------T---------T---------T---------T--
-        /// Output:  ----1------------3-------------------5--
+        /// Output:  ----1----2-------3-----------4-------5--
         ///
         /// If either the source or trigger complete the output completes.
         /// If either the source or trigger error the output error's.
@@ -251,9 +251,9 @@ namespace TechNoir.Reactive
         /// </summary>
         /// <typeparam name="TResult">The type of the result.</typeparam>
         /// <typeparam name="TTrigger">The type of the trigger.</typeparam>
-        /// <param name="source">The source.</param>
-        /// <param name="trigger">The trigger.</param>
-        /// <returns>IObservable&lt;TResult&gt;.</returns>
+        /// <param name="source">The source <see cref="IObservable{TResult}"/>.</param>
+        /// <param name="trigger">The trigger <see cref="IObservable{TTrigger}"/>.</param>
+        /// <returns><see cref="IObservable{TResult}"/>.</returns>
         public static IObservable<TResult> FirstSampleTrigger<TResult, TTrigger>(this IObservable<TResult> source, IObservable<TTrigger> trigger)
 			=>
 		Observable
@@ -262,15 +262,16 @@ namespace TechNoir.Reactive
 		;
 
         /// <summary>
-        /// Firsts the sample trigger.
-        /// <see cref="FirstSampleTrigger{TResult,TTrigger}(IObservable{TResult}, IObservable{TTrigger})"/>
+        /// <see cref="FirstSampleTrigger{TResult,TTrigger}(IObservable{TResult}, IObservable{TTrigger})"/> overload.
+        ///
+        /// Accepts an <see cref="IEqualityComparer{TResult}"/> allowing for custom comparison of source values to determine distinctness.
         /// </summary>
-        /// <typeparam name="TResult">The type of the t result.</typeparam>
-        /// <typeparam name="TTrigger">The type of the t trigger.</typeparam>
-        /// <param name="source">The source.</param>
-        /// <param name="trigger">The trigger.</param>
-        /// <param name="comparer">The comparer.</param>
-        /// <returns>IObservable&lt;TResult&gt;.</returns>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <typeparam name="TTrigger">The type of the trigger.</typeparam>
+        /// <param name="source">The source <see cref="IObservable{TResult}"/>.</param>
+        /// <param name="trigger">The trigger <see cref="IObservable{TTrigger}"/>.</param>
+        /// <param name="comparer">The <see cref="IEqualityComparer{TResult}"/> used to compare source values.</param>
+        /// <returns><see cref="IObservable{TResult}"/>.</returns>
         public static IObservable<TResult> FirstSampleTrigger<TResult, TTrigger>(this IObservable<TResult> source, IObservable<TTrigger> trigger, IEqualityComparer<TResult> comparer)
 			=>
 		Observable
@@ -279,15 +280,17 @@ namespace TechNoir.Reactive
 		;
 
         /// <summary>
-        /// Firsts the sample trigger.
+        /// <see cref="FirstSampleTrigger{TResult,TTrigger}(IObservable{TResult}, IObservable{TTrigger})"/> overload.
+        ///
+        /// Accepts an <see cref="Func{TResult,Tkey}">source key selector</see> allowing for comparison of source key values to determine distinctness.
         /// </summary>
-        /// <typeparam name="TResult">The type of the t result.</typeparam>
-        /// <typeparam name="TTrigger">The type of the t trigger.</typeparam>
-        /// <typeparam name="TKey">The type of the t key.</typeparam>
-        /// <param name="source">The source.</param>
-        /// <param name="trigger">The trigger.</param>
-        /// <param name="key_selector">The key selector.</param>
-        /// <returns>IObservable&lt;TResult&gt;.</returns>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <typeparam name="TTrigger">The type of the trigger.</typeparam>
+        /// <typeparam name="TKey">The type of the source key.</typeparam>
+        /// <param name="source">The source <see cref="IObservable{TResult}"/>.</param>
+        /// <param name="trigger">The trigger <see cref="IObservable{TTrigger}"/>.</param>
+        /// <param name="key_selector">The <see cref="Func{TResult,Tkey}">source key selector</see> used to select source keys.</param>
+        /// <returns><see cref="IObservable{TResult}"/>.</returns>
         public static IObservable<TResult> FirstSampleTrigger<TResult, TTrigger, TKey>(this IObservable<TResult> source, IObservable<TTrigger> trigger, Func<TResult, TKey> key_selector)
 			=>
 		Observable
@@ -296,16 +299,18 @@ namespace TechNoir.Reactive
 		;
 
         /// <summary>
-        /// Firsts the sample trigger.
+        /// <see cref="FirstSampleTrigger{TResult, TTrigger, TKey}(IObservable{TResult}, IObservable{TTrigger}, Func{TResult, TKey})"/> overload.
+        ///
+        /// Accepts an <see cref="IEqualityComparer{TKey}"/> allowing for custom comparison of source key values to determine distinctness.
         /// </summary>
         /// <typeparam name="TResult">The type of the t result.</typeparam>
         /// <typeparam name="TTrigger">The type of the t trigger.</typeparam>
-        /// <typeparam name="TKey">The type of the t key.</typeparam>
-        /// <param name="source">The source.</param>
-        /// <param name="trigger">The trigger.</param>
-        /// <param name="key_selector">The key selector.</param>
-        /// <param name="comparer">The comparer.</param>
-        /// <returns>IObservable&lt;TResult&gt;.</returns>
+        /// <typeparam name="TKey">The type of the source key.</typeparam>
+        /// <param name="source">The source <see cref="IObservable{TResult}"/>.</param>
+        /// <param name="trigger">The trigger <see cref="IObservable{TTrigger}"/>.</param>
+        /// <param name="key_selector">The <see cref="Func{TResult,Tkey}">source key selector</see> used to select source keys.</param>
+        /// <param name="comparer">The <see cref="IEqualityComparer{TKey}"/> used to compare source key values.</param>
+        /// <returns><see cref="IObservable{TResult}"/>.</returns>
         public static IObservable<TResult> FirstSampleTrigger<TResult, TTrigger, TKey>(this IObservable<TResult> source, IObservable<TTrigger> trigger, Func<TResult, TKey> key_selector, IEqualityComparer<TKey> comparer)
 			=>
 		Observable
