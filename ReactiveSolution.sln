@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reactive", "Reactive\Reactive.csproj", "{F0877689-AD38-442D-BF3C-6C83907DCFBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reactive.Test", "Reactive.Test\Reactive.Test.csproj", "{5F7DA965-74ED-4B8D-A7BF-EA0D5AC588E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reactive.Test", "Reactive.Test\Reactive.Test.csproj", "{5F7DA965-74ED-4B8D-A7BF-EA0D5AC588E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7E12D40D-D210-48A8-A8BF-6BCFE46E12C0}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

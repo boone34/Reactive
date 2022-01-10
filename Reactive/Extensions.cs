@@ -69,7 +69,7 @@ namespace TechNoir.Reactive
 		}
 
         /// <summary>
-        /// Trigger operator which outputs a source value only after a trigger. Once a source value is output the trigger is reset.
+        /// Operator which outputs a source value only after a trigger. Once a source value is output the trigger is reset.
         ///
         /// Source:  ----1----2----3----4----
         /// Trigger: -------T---------T------
@@ -226,7 +226,7 @@ namespace TechNoir.Reactive
 		}
 
         /// <summary>
-        /// Trigger operator which outputs the first source value followed by distinct source values on trigger.
+        /// Operator which outputs the first source value followed by distinct source values on trigger.
         ///
         /// Source:  ----1----2----3----4----3----4----5-----
         /// Trigger: -------T---------T---------T---------T--

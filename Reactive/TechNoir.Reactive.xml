@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TechNoir.Reactive</name>
+    </assembly>
+    <members>
+        <member name="T:TechNoir.Reactive.DisposableExtensions">
+            <summary>
+            Class DisposableExtensions.
+            </summary>
+        </member>
+        <member name="M:TechNoir.Reactive.DisposableExtensions.DisposeWithComposite``1(``0,System.Reactive.Disposables.CompositeDisposable)">
+            <summary>Disposes <paramref name="item" /> with <paramref name="disposables" />.</summary>
+            <typeparam name="T">Must be a <see cref="T:System.IDisposable" />.</typeparam>
+            <param name="item">The <see cref="T:System.IDisposable" /> to be disposed with <paramref name="disposables" />.</param>
+            <param name="disposables">The <see cref="T:System.Reactive.Disposables.CompositeDisposable" /> to dispose <paramref name="item" />.</param>
+            <returns><paramref name="item" />.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="disposables" /></exception>
+        </member>
+        <member name="M:TechNoir.Reactive.DisposableExtensions.AddObservable``1(System.Reactive.Disposables.CompositeDisposable,System.IObservable{``0},System.Func{``0,System.IDisposable},System.Boolean)">
+            <summary>
+            Adds/removes/replaces an <see cref="T:System.IDisposable" /> to <paramref name="disposables" /> based on the output of <paramref name="observable" />.
+            </summary>
+            <typeparam name="T">The <paramref name="observable" /> type.</typeparam>
+            <param name="disposables">The <see cref="T:System.Reactive.Disposables.CompositeDisposable" /> to add/remove/replace the <see cref="T:System.IDisposable" /> to.</param>
+            <param name="observable">The <see cref="T:System.IObservable`1" /> used to generate the <see cref="T:System.IDisposable" /> with <paramref name="disposable_func"/>.</param>
+            <param name="disposable_func">The function used to generate the <see cref="T:System.IDisposable" /> form <paramref name="observable"/> values.</param>
+            <param name="null_nop">Determines weather null values are added to <paramref name="disposables" />. The default is false.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="disposables" /></exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="observable" /></exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="disposable_func" /></exception>
+        </member>
+        <member name="M:TechNoir.Reactive.DisposableExtensions.AddObservable``1(System.Reactive.Disposables.CompositeDisposable,System.IObservable{``0},System.Boolean,System.Func{``0,System.IDisposable}[])">
+            <summary>
+            Adds/removes/replaces a <see cref="T:System.Reactive.Disposables.CompositeDisposable" /> to <paramref name="disposables" /> based on the output of <paramref name="observable" />.
+            </summary>
+            <typeparam name="T">The <paramref name="observable" /> type.</typeparam>
+            <param name="disposables">The <see cref="T:System.Reactive.Disposables.CompositeDisposable" /> to add/remove/replace the <see cref="T:System.Reactive.Disposables.CompositeDisposable" /> to.</param>
+            <param name="observable">The <see cref="T:System.IObservable`1" /> used to generate the <see cref="T:System.Reactive.Disposables.CompositeDisposable" /> from <paramref name="disposable_funcs"/>.</param>
+            <param name="null_nop">Determines weather null values are added to the <see cref="T:System.Reactive.Disposables.CompositeDisposable" />. Should be set to true to not add null values.</param>
+            <param name="disposable_funcs">The functions used to generate the <see cref="T:System.Reactive.Disposables.CompositeDisposable" /> form <paramref name="observable"/> values.</param>
+            <exception cref="T:System.ArgumentNullException">disposables</exception>
+            <exception cref="T:System.ArgumentNullException">observable</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">disposable_funcs</exception>
+        </member>
+        <member name="M:TechNoir.Reactive.DisposableExtensions.AddObservable``1(System.Reactive.Disposables.CompositeDisposable,System.IObservable{``0},System.Func{``0,System.IDisposable}[])">
+            <summary>
+            Adds/removes/replaces a <see cref="T:System.Reactive.Disposables.CompositeDisposable" /> to <paramref name="disposables" /> based on the output of <paramref name="observable" />.
+            Same as <see cref="M:TechNoir.Reactive.DisposableExtensions.AddObservable``1(System.Reactive.Disposables.CompositeDisposable,System.IObservable{``0},System.Boolean,System.Func{``0,System.IDisposable}[])" /> with null_nop set to true, null values are not added to the <see cref="T:System.Reactive.Disposables.CompositeDisposable" />.
+            </summary>
+            <typeparam name="T">The <paramref name="observable" /> type.</typeparam>
+            <param name="disposables">The <see cref="T:System.Reactive.Disposables.CompositeDisposable" /> to add/remove/replace the <see cref="T:System.Reactive.Disposables.CompositeDisposable" /> to.</param>
+            <param name="observable">The <see cref="T:System.IObservable`1" /> used to generate the <see cref="T:System.Reactive.Disposables.CompositeDisposable" /> from <paramref name="disposable_funcs"/>.</param>
+            <param name="disposable_funcs">The functions used to generate the <see cref="T:System.Reactive.Disposables.CompositeDisposable" /> form <paramref name="observable"/> values.</param>
+        </member>
+        <member name="T:TechNoir.Reactive.DisposableWrapper`1">
+            <summary>
+            Class DisposableWrapper.
+            Implements the <see cref="T:System.IDisposable" />
+            Used to wrap an object which may or may not be <see cref="T:System.IDisposable" />. If the wrapped object is <see cref="T:System.IDisposable" /> it will be disposed when this is disposed.
+            </summary>
+            <typeparam name="T">Type of the wrapped object</typeparam>
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="F:TechNoir.Reactive.DisposableWrapper`1._Disposable">
+            <summary>
+            The disposable
+            </summary>
+        </member>
+        <member name="P:TechNoir.Reactive.DisposableWrapper`1.Disposed">
+            <summary>
+            Gets a value indicating whether this <see cref="T:TechNoir.Reactive.DisposableWrapper`1"/> is disposed.
+            </summary>
+            <value><c>true</c> if disposed; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:TechNoir.Reactive.DisposableWrapper`1.Wrapped">
+            <summary>
+            Gets the wrapped object.
+            </summary>
+            <value>The wrapped.</value>
+        </member>
+        <member name="M:TechNoir.Reactive.DisposableWrapper`1.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:TechNoir.Reactive.DisposableWrapper`1.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:TechNoir.Reactive.DisposableWrapper`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TechNoir.Reactive.DisposableWrapper`1"/> class.
+            </summary>
+            <param name="wrapped">The wrapped object.</param>
+        </member>
+        <member name="T:TechNoir.Reactive.Extensions">
+            <summary>
+            Class Extensions.
+            Implements Trigger and FirstSampleTrigger observable operators.
+            </summary>
+        </member>
+        <member name="M:TechNoir.Reactive.Extensions.Trigger``2(System.IObservable{``0},System.IObservable{``1})">
+             <summary>
+             Operator which outputs a source value only after a trigger. Once a source value is output the trigger is reset.
+            
+             Source:  ----1----2----3----4----
+             Trigger: -------T---------T------
+             Output:  ---------2---------4----
+            
+             If either the source or trigger complete the output completes.
+             If either the source or trigger error the output error's.
+             </summary>
+             <typeparam name="TResult">The type of the source observable.</typeparam>
+             <typeparam name="TTrigger">The type of the trigger observable.</typeparam>
+             <param name="source">The source observable.</param>
+             <param name="trigger">The trigger observable.</param>
+             <returns>IObservable&lt;TResult&gt;.</returns>
+        </member>
+        <member name="M:TechNoir.Reactive.Extensions.FirstSampleTrigger``2(System.IObservable{``0},System.IObservable{``1})">
+             <summary>
+             Operator which outputs the first source value followed by distinct source values on trigger.
+            
+             Source:  ----1----2----3----4----3----4----5-----
+             Trigger: -------T---------T---------T---------T--
+             Output:  ----1----2-------3-----------4-------5--
+            
+             If either the source or trigger complete the output completes.
+             If either the source or trigger error the output error's.
+            
+             This operator facilitates keeping UI updated with the latest data. For example consider updating a data grid based on a search term entered
+             by a user where retrieving the data can take some time (ie. database look up etc).
+             
+             Often this is addressed by throttling user criteria changes and performing the lookup on the throttled criteria. Doing this will delay the
+             first grid update. Also since the throttle time is not synchronized to the lookup time this can lead to un necessary lookups (when the throttle
+             time is less than the lookup time) or missed updates (when the throttle time is greater than the lookup time).
+            
+             This operator addresses these issues by emitting the first criteria immediately and then emitting changed criteria synchronized to lookup
+             completion.
+            
+             To use the <paramref name="source" /> should be an observable of the criteria, <paramref name="trigger" /> should be a observable of lookup
+             completion. Note that the type of the trigger is immaterial. Each time the operator emits a criteria a lookup should be initiated. In this
+             way the UI will be updated as quickly as lookups can be performed.
+             </summary>
+             <typeparam name="TResult">The type of the result.</typeparam>
+             <typeparam name="TTrigger">The type of the trigger.</typeparam>
+             <param name="source">The source <see cref="T:System.IObservable`1"/>.</param>
+             <param name="trigger">The trigger <see cref="T:System.IObservable`1"/>.</param>
+             <returns><see cref="T:System.IObservable`1"/>.</returns>
+        </member>
+        <member name="M:TechNoir.Reactive.Extensions.FirstSampleTrigger``2(System.IObservable{``0},System.IObservable{``1},System.Collections.Generic.IEqualityComparer{``0})">
+             <summary>
+             <see cref="M:TechNoir.Reactive.Extensions.FirstSampleTrigger``2(System.IObservable{``0},System.IObservable{``1})"/> overload.
+            
+             Accepts an <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> allowing for custom comparison of source values to determine distinctness.
+             </summary>
+             <typeparam name="TResult">The type of the result.</typeparam>
+             <typeparam name="TTrigger">The type of the trigger.</typeparam>
+             <param name="source">The source <see cref="T:System.IObservable`1"/>.</param>
+             <param name="trigger">The trigger <see cref="T:System.IObservable`1"/>.</param>
+             <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> used to compare source values.</param>
+             <returns><see cref="T:System.IObservable`1"/>.</returns>
+        </member>
+        <member name="M:TechNoir.Reactive.Extensions.FirstSampleTrigger``3(System.IObservable{``0},System.IObservable{``1},System.Func{``0,``2})">
+             <summary>
+             <see cref="M:TechNoir.Reactive.Extensions.FirstSampleTrigger``2(System.IObservable{``0},System.IObservable{``1})"/> overload.
+            
+             Accepts an <see cref="T:System.Func`2">source key selector</see> allowing for comparison of source key values to determine distinctness.
+             </summary>
+             <typeparam name="TResult">The type of the result.</typeparam>
+             <typeparam name="TTrigger">The type of the trigger.</typeparam>
+             <typeparam name="TKey">The type of the source key.</typeparam>
+             <param name="source">The source <see cref="T:System.IObservable`1"/>.</param>
+             <param name="trigger">The trigger <see cref="T:System.IObservable`1"/>.</param>
+             <param name="key_selector">The <see cref="T:System.Func`2">source key selector</see> used to select source keys.</param>
+             <returns><see cref="T:System.IObservable`1"/>.</returns>
+        </member>
+        <member name="M:TechNoir.Reactive.Extensions.FirstSampleTrigger``3(System.IObservable{``0},System.IObservable{``1},System.Func{``0,``2},System.Collections.Generic.IEqualityComparer{``2})">
+             <summary>
+             <see cref="M:TechNoir.Reactive.Extensions.FirstSampleTrigger``3(System.IObservable{``0},System.IObservable{``1},System.Func{``0,``2})"/> overload.
+            
+             Accepts an <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> allowing for custom comparison of source key values to determine distinctness.
+             </summary>
+             <typeparam name="TResult">The type of the t result.</typeparam>
+             <typeparam name="TTrigger">The type of the t trigger.</typeparam>
+             <typeparam name="TKey">The type of the source key.</typeparam>
+             <param name="source">The source <see cref="T:System.IObservable`1"/>.</param>
+             <param name="trigger">The trigger <see cref="T:System.IObservable`1"/>.</param>
+             <param name="key_selector">The <see cref="T:System.Func`2">source key selector</see> used to select source keys.</param>
+             <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> used to compare source key values.</param>
+             <returns><see cref="T:System.IObservable`1"/>.</returns>
+        </member>
+        <member name="T:TechNoir.Reactive.RefCountSetResetDisposable">
+             <summary>
+             Class RefCountSetResetDisposable.
+            
+             Implements a reference count which manages a disposable. The first time the reference count is incremented by calling <see cref="M:TechNoir.Reactive.RefCountSetResetDisposable.Set"/>
+             a <em>Set</em> action is invoked if not null.
+            
+             Each time the <see cref="T:System.IDisposable"/> returned from <see cref="M:TechNoir.Reactive.RefCountSetResetDisposable.Set"/> is disposed the reference count is decremented. Once decremented
+             to zero the <em>Reset</em> action is invoked if not null.
+             </summary>
+        </member>
+        <member name="M:TechNoir.Reactive.RefCountSetResetDisposable.Set">
+            <summary>
+            Increments reference count. If reference count == 0 the <em>Set</em> action is invoked if not null.
+            </summary>
+            <returns><see cref="T:System.IDisposable" /> which should be disposed to decrement reference count.</returns>
+        </member>
+        <member name="M:TechNoir.Reactive.RefCountSetResetDisposable.#ctor(System.Action,System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TechNoir.Reactive.RefCountSetResetDisposable"/> class.
+            </summary>
+            <param name="set">Action to be performed when this is set the first time.</param>
+            <param name="reset">Action to be performed when this is disposed the last time (when reference count == 0).</param>
+        </member>
+    </members>
+</doc>
