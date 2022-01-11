@@ -12,6 +12,13 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/boone34/Reactive</PackageProjectUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <RepositoryUrl>https://github.com/boone34/Reactive</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
     <DocumentationFile>C:\Users\boone\Documents\TechNoir\Projects\Reactive\Reactive\TechNoir.Reactive.xml</DocumentationFile>
