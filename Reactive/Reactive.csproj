@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net5.0;netstandard2.0;net472</TargetFrameworks>
+    <TargetFrameworks>net472;netstandard2.0;net8.0;net9.0</TargetFrameworks>
     <AssemblyName>TechNoir.Reactive</AssemblyName>
     <RootNamespace>TechNoir.Reactive</RootNamespace>
     <Copyright>Copyright © TechNoir 2022</Copyright>
