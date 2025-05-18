@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net5.0;netstandard2.0;net46</TargetFrameworks>
+    <TargetFrameworks>net5.0;netstandard2.0;net472</TargetFrameworks>
     <AssemblyName>TechNoir.Reactive</AssemblyName>
     <RootNamespace>TechNoir.Reactive</RootNamespace>
     <Copyright>Copyright © TechNoir 2022</Copyright>
@@ -25,11 +25,11 @@
     <DefaultDocumentationGeneratedPages>Namespaces</DefaultDocumentationGeneratedPages>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DefaultDocumentation" Version="0.7.9">
+    <PackageReference Include="DefaultDocumentation" Version="0.8.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.Reactive" Version="4.1.2" />
+    <PackageReference Include="System.Reactive" Version="6.0.1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\License.txt">
