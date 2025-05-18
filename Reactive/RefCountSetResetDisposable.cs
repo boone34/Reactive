@@ -14,10 +14,11 @@ namespace TechNoir.Reactive
     /// </summary>
     public class RefCountSetResetDisposable
 	{
-		private readonly object _Lock;
-		private          uint   _RefCount;
-		private readonly Action _Set;
-		private readonly Action _Reset;
+		private readonly object    _Lock;
+		private          uint      _RefCount;
+		private readonly Action?   _Set;
+		private readonly Action?   _Reset;
+		private readonly TimeSpan? _FirstSetDelay;
 
 		private void OnDispose()
 		{
@@ -54,11 +55,13 @@ namespace TechNoir.Reactive
         /// </summary>
         /// <param name="set">Action to be performed when this is set the first time.</param>
         /// <param name="reset">Action to be performed when this is disposed the last time (when reference count == 0).</param>
-        public RefCountSetResetDisposable(Action set, Action reset)
+        /// <param name="first_set_delay">Delay on first set, if disposed before set is not called.</param>
+        public RefCountSetResetDisposable(Action set, Action reset, TimeSpan? first_set_delay = null)
 		{
-			_Lock  = new object();
-			_Set   = set;
-			_Reset = reset;
-		}
+			_Lock          = new object();
+			_Set           = set;
+			_Reset         = reset;
+            _FirstSetDelay = first_set_delay;
+        }
 	}
 }

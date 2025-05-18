@@ -124,7 +124,7 @@ namespace TechNoir.Reactive
 						case States.Starting:
 							_Observer.OnNext(value);
 							_LastValue = value;
-							_State = States.WaitingForDistinct;
+							_State     = States.WaitingForDistinct;
 							break;
 						case States.WaitingForOne:
 							_Observer.OnNext(value);
@@ -134,21 +134,21 @@ namespace TechNoir.Reactive
 							if (IsDistinct(value))
 							{
 								_NextValue = value;
-								_State = States.HaveDistinct;
+								_State     = States.HaveDistinct;
 							}
 							break;
 						case States.HaveDistinct:
 							if (IsDistinct(value))
 								_NextValue = value;
 							else
-								_State = States.WaitingForDistinct;
+								_State     = States.WaitingForDistinct;
 							break;
 						case States.Triggered:
 							if (IsDistinct(value))
 							{
 								_Observer.OnNext(value);
 								_LastValue = value;
-								_State = States.WaitingForDistinct;
+								_State     = States.WaitingForDistinct;
 							}
 							break;
 						default:
@@ -173,7 +173,7 @@ namespace TechNoir.Reactive
 						case States.HaveDistinct:
 							_Observer.OnNext(_NextValue);
 							_LastValue = _NextValue;
-							_State = States.WaitingForDistinct;
+							_State     = States.WaitingForDistinct;
 							break;
 						default:
 							throw new ArgumentOutOfRangeException();
@@ -202,15 +202,25 @@ namespace TechNoir.Reactive
 				}
 			}
 
-            public FirstSampleTriggerObservable(IObservable<TResult> source, IObservable<TTrigger> trigger, IObserver<TResult> observer, Func<TResult, TKey> key_selector, IEqualityComparer<TKey> comparer)
+            public
+			FirstSampleTriggerObservable
+			(
+				IObservable<TResult>    source,
+				IObservable<TTrigger>   trigger,
+				IObserver<TResult>      observer,
+				Func<TResult, TKey>     key_selector,
+				IEqualityComparer<TKey> comparer
+			)
 			{
 				if (source == null) throw new ArgumentNullException(nameof(source));
 				if (trigger == null) throw new ArgumentNullException(nameof(trigger));
 
-				_Lock = new object();
-				_State = States.Starting;
+				_Lock        = new object();
+				_State       = States.Starting;
 				_Disposables = new CompositeDisposable();
-				_Observer = observer;
+				_LastValue   = default!;
+				_NextValue   = default!;
+				_Observer    = observer;
 				_KeySelector = key_selector ?? throw new ArgumentNullException(nameof(key_selector));
 				_KeyComparer = comparer ?? throw new ArgumentNullException(nameof(comparer));
 
@@ -221,8 +231,8 @@ namespace TechNoir.Reactive
 
         private class DefaultEqualityComparer<T> : IEqualityComparer<T>
 		{
-            public bool Equals(T x, T y)   => x == null ? y == null : x.Equals(y);
-            public int  GetHashCode(T obj) => obj.GetHashCode();
+            public bool Equals(T? x, T? y) => x == null ? y == null : x.Equals(y);
+            public int  GetHashCode(T obj) => obj?.GetHashCode() ?? throw new Exception("GetHashCode(T obj == null)");
 		}
 
         /// <summary>

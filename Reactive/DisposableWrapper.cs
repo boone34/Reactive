@@ -14,7 +14,7 @@ namespace TechNoir.Reactive
         /// <summary>
         /// The disposable
         /// </summary>
-        private IDisposable _Disposable;
+        private IDisposable? _Disposable;
 
         /// <summary>
         /// Gets a value indicating whether this <see cref="DisposableWrapper{T}"/> is disposed.
@@ -60,7 +60,7 @@ namespace TechNoir.Reactive
         /// <param name="wrapped">The wrapped object.</param>
         public DisposableWrapper(T wrapped)
         {
-            _Disposable = wrapped as IDisposable;;
+            _Disposable = wrapped as IDisposable;
             Wrapped     = wrapped;
         }
     }

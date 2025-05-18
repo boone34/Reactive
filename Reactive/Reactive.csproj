@@ -1,14 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFrameworks>net472;netstandard2.0;net8.0;net9.0</TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
         <AssemblyName>TechNoir.Reactive</AssemblyName>
         <RootNamespace>TechNoir.Reactive</RootNamespace>
         <Copyright>Copyright © TechNoir 2022</Copyright>
         <Description>Reactive Support</Description>
         <Company>TechNoir</Company>
         <Authors>Boone</Authors>
-        <PackageReleaseNotes>Document</PackageReleaseNotes>
-        <Version>1.0.4</Version>
+        <PackageReleaseNotes>Delay, NET8, NET9</PackageReleaseNotes>
+        <Version>9.0.0</Version>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageLicenseFile>License.txt</PackageLicenseFile>
         <PackageProjectUrl>https://github.com/boone34/Reactive</PackageProjectUrl>

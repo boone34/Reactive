@@ -41,7 +41,7 @@ namespace TechNoir.Reactive
             if (observable == null)      throw new ArgumentNullException(nameof(observable));
             if (disposable_func == null) throw new ArgumentNullException(nameof(disposable_func));
 
-            IDisposable disposable = null;
+            IDisposable? disposable = null;
 
             observable
             .Subscribe
@@ -81,7 +81,7 @@ namespace TechNoir.Reactive
             if (observable == null)      throw new ArgumentNullException(nameof(observable));
             if (!disposable_funcs.Any()) throw new ArgumentOutOfRangeException(nameof(disposable_funcs));
 
-            CompositeDisposable this_disposables = null;
+            CompositeDisposable? this_disposables = null;
 
             observable
             .Subscribe
