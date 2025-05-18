@@ -14,47 +14,47 @@ public static class DisposableExtensions
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; DisposableExtensions
 ### Methods
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[])'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[])'></a>
 
 ## DisposableExtensions.AddObservable<T>(this CompositeDisposable, IObservable<T>, bool, Func<T,IDisposable>[]) Method
 
-Adds/removes/replaces a [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') to [disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).disposables 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).disposables') based on the output of [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).observable').
+Adds/removes/replaces a [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') to [disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).disposables 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).disposables') based on the output of [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).observable').
 
 ```csharp
-public static void AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable disposables, System.IObservable<T> observable, bool null_nop, params System.Func<T,System.IDisposable>[] disposable_funcs);
+public static void AddObservable<T>(this CompositeDisposable disposables, System.IObservable<T> observable, bool null_nop, params System.Func<T,System.IDisposable>[] disposable_funcs);
 ```
 #### Type parameters
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).T'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).T'></a>
 
 `T`
 
-The [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).observable') type.
+The [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).observable') type.
 #### Parameters
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).disposables'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).disposables'></a>
 
 `disposables` [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable')
 
 The [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') to add/remove/replace the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') to.
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).observable'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).observable'></a>
 
-`observable` [System.IObservable&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1')[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).T 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).T')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1')
+`observable` [System.IObservable&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1')[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).T 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).T')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1')
 
-The [System.IObservable&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1') used to generate the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') from [disposable_funcs](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).disposable_funcs 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).disposable_funcs').
+The [System.IObservable&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1') used to generate the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') from [disposable_funcs](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).disposable_funcs 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).disposable_funcs').
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).null_nop'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).null_nop'></a>
 
 `null_nop` [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
 
 Determines weather null values are added to the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable'). Should be set to true to not add null values.
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).disposable_funcs'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).disposable_funcs'></a>
 
-`disposable_funcs` [System.Func&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).T 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).T')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[[]](https://docs.microsoft.com/en-us/dotnet/api/System.Array 'System.Array')
+`disposable_funcs` [System.Func&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).T 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).T')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[[]](https://docs.microsoft.com/en-us/dotnet/api/System.Array 'System.Array')
 
-The functions used to generate the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') form [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).observable') values.
+The functions used to generate the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') form [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[]).observable') values.
 
 #### Exceptions
 
@@ -67,135 +67,135 @@ observable
 [System.ArgumentOutOfRangeException](https://docs.microsoft.com/en-us/dotnet/api/System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException')  
 disposable_funcs
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool)'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool)'></a>
 
 ## DisposableExtensions.AddObservable<T>(this CompositeDisposable, IObservable<T>, Func<T,IDisposable>, bool) Method
 
-Adds/removes/replaces an [System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable') to [disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposables 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).disposables') based on the output of [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).observable').
+Adds/removes/replaces an [System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable') to [disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposables 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).disposables') based on the output of [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).observable').
 
 ```csharp
-public static void AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable disposables, System.IObservable<T> observable, System.Func<T,System.IDisposable> disposable_func, bool null_nop=true);
+public static void AddObservable<T>(this CompositeDisposable disposables, System.IObservable<T> observable, System.Func<T,System.IDisposable> disposable_func, bool null_nop=true);
 ```
 #### Type parameters
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).T'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).T'></a>
 
 `T`
 
-The [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).observable') type.
+The [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).observable') type.
 #### Parameters
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposables'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposables'></a>
 
 `disposables` [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable')
 
 The [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') to add/remove/replace the [System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable') to.
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).observable'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).observable'></a>
 
-`observable` [System.IObservable&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1')[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).T 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).T')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1')
+`observable` [System.IObservable&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1')[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).T 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).T')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1')
 
-The [System.IObservable&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1') used to generate the [System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable') with [disposable_func](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposable_func 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).disposable_func').
+The [System.IObservable&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1') used to generate the [System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable') with [disposable_func](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposable_func 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).disposable_func').
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposable_func'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposable_func'></a>
 
-`disposable_func` [System.Func&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).T 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).T')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')
+`disposable_func` [System.Func&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).T 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).T')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')
 
-The function used to generate the [System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable') form [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).observable') values.
+The function used to generate the [System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable') form [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).observable') values.
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).null_nop'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).null_nop'></a>
 
 `null_nop` [System.Boolean](https://docs.microsoft.com/en-us/dotnet/api/System.Boolean 'System.Boolean')
 
-Determines weather null values are added to [disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposables 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).disposables'). The default is false.
+Determines weather null values are added to [disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposables 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).disposables'). The default is false.
 
 #### Exceptions
 
 [System.ArgumentNullException](https://docs.microsoft.com/en-us/dotnet/api/System.ArgumentNullException 'System.ArgumentNullException')  
-[disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposables 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).disposables')
+[disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposables 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).disposables')
 
 [System.ArgumentNullException](https://docs.microsoft.com/en-us/dotnet/api/System.ArgumentNullException 'System.ArgumentNullException')  
-[observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).observable')
+[observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).observable')
 
 [System.ArgumentNullException](https://docs.microsoft.com/en-us/dotnet/api/System.ArgumentNullException 'System.ArgumentNullException')  
-[disposable_func](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposable_func 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).disposable_func')
+[disposable_func](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_,bool).disposable_func 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>, bool).disposable_func')
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[])'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[])'></a>
 
 ## DisposableExtensions.AddObservable<T>(this CompositeDisposable, IObservable<T>, Func<T,IDisposable>[]) Method
 
-Adds/removes/replaces a [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') to [disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).disposables 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).disposables') based on the output of [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).observable').  
-Same as [AddObservable&lt;T&gt;(this CompositeDisposable, IObservable&lt;T&gt;, bool, Func&lt;T,IDisposable&gt;[])](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]) 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[])') with null_nop set to true, null values are not added to the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable').
+Adds/removes/replaces a [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') to [disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).disposables 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).disposables') based on the output of [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).observable').  
+Same as [AddObservable&lt;T&gt;(this CompositeDisposable, IObservable&lt;T&gt;, bool, Func&lt;T,IDisposable&gt;[])](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,bool,System.Func_T,System.IDisposable_[]) 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, bool, System.Func<T,System.IDisposable>[])') with null_nop set to true, null values are not added to the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable').
 
 ```csharp
-public static void AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable disposables, System.IObservable<T> observable, params System.Func<T,System.IDisposable>[] disposable_funcs);
+public static void AddObservable<T>(this CompositeDisposable disposables, System.IObservable<T> observable, params System.Func<T,System.IDisposable>[] disposable_funcs);
 ```
 #### Type parameters
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).T'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).T'></a>
 
 `T`
 
-The [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).observable') type.
+The [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).observable') type.
 #### Parameters
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).disposables'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).disposables'></a>
 
 `disposables` [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable')
 
 The [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') to add/remove/replace the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') to.
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).observable'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).observable'></a>
 
-`observable` [System.IObservable&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1')[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).T 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).T')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1')
+`observable` [System.IObservable&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1')[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).T 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).T')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1')
 
-The [System.IObservable&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1') used to generate the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') from [disposable_funcs](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).disposable_funcs 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).disposable_funcs').
+The [System.IObservable&lt;&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.IObservable-1 'System.IObservable`1') used to generate the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') from [disposable_funcs](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).disposable_funcs 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).disposable_funcs').
 
-<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).disposable_funcs'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).disposable_funcs'></a>
 
-`disposable_funcs` [System.Func&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).T 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).T')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[[]](https://docs.microsoft.com/en-us/dotnet/api/System.Array 'System.Array')
+`disposable_funcs` [System.Func&lt;](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).T 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).T')[,](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable')[&gt;](https://docs.microsoft.com/en-us/dotnet/api/System.Func-2 'System.Func`2')[[]](https://docs.microsoft.com/en-us/dotnet/api/System.Array 'System.Array')
 
-The functions used to generate the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') form [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisSystem.Reactive.Disposables.CompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this System.Reactive.Disposables.CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).observable') values.
+The functions used to generate the [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') form [observable](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.AddObservable_T_(thisCompositeDisposable,System.IObservable_T_,System.Func_T,System.IDisposable_[]).observable 'TechNoir.Reactive.DisposableExtensions.AddObservable<T>(this CompositeDisposable, System.IObservable<T>, System.Func<T,System.IDisposable>[]).observable') values.
 
-<a name='TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,System.Reactive.Disposables.CompositeDisposable)'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,CompositeDisposable)'></a>
 
 ## DisposableExtensions.DisposeWithComposite<T>(this T, CompositeDisposable) Method
 
-Disposes [item](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,System.Reactive.Disposables.CompositeDisposable).item 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, System.Reactive.Disposables.CompositeDisposable).item') with [disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,System.Reactive.Disposables.CompositeDisposable).disposables 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, System.Reactive.Disposables.CompositeDisposable).disposables').
+Disposes [item](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,CompositeDisposable).item 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, CompositeDisposable).item') with [disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,CompositeDisposable).disposables 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, CompositeDisposable).disposables').
 
 ```csharp
-public static T DisposeWithComposite<T>(this T item, System.Reactive.Disposables.CompositeDisposable disposables)
+public static T DisposeWithComposite<T>(this T item, CompositeDisposable disposables)
     where T : System.IDisposable;
 ```
 #### Type parameters
 
-<a name='TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,System.Reactive.Disposables.CompositeDisposable).T'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,CompositeDisposable).T'></a>
 
 `T`
 
 Must be a [System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable').
 #### Parameters
 
-<a name='TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,System.Reactive.Disposables.CompositeDisposable).item'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,CompositeDisposable).item'></a>
 
-`item` [T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,System.Reactive.Disposables.CompositeDisposable).T 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, System.Reactive.Disposables.CompositeDisposable).T')
+`item` [T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,CompositeDisposable).T 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, CompositeDisposable).T')
 
-The [System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable') to be disposed with [disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,System.Reactive.Disposables.CompositeDisposable).disposables 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, System.Reactive.Disposables.CompositeDisposable).disposables').
+The [System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.IDisposable 'System.IDisposable') to be disposed with [disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,CompositeDisposable).disposables 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, CompositeDisposable).disposables').
 
-<a name='TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,System.Reactive.Disposables.CompositeDisposable).disposables'></a>
+<a name='TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,CompositeDisposable).disposables'></a>
 
 `disposables` [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable')
 
-The [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') to dispose [item](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,System.Reactive.Disposables.CompositeDisposable).item 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, System.Reactive.Disposables.CompositeDisposable).item').
+The [System.Reactive.Disposables.CompositeDisposable](https://docs.microsoft.com/en-us/dotnet/api/System.Reactive.Disposables.CompositeDisposable 'System.Reactive.Disposables.CompositeDisposable') to dispose [item](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,CompositeDisposable).item 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, CompositeDisposable).item').
 
 #### Returns
-[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,System.Reactive.Disposables.CompositeDisposable).T 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, System.Reactive.Disposables.CompositeDisposable).T')  
-[item](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,System.Reactive.Disposables.CompositeDisposable).item 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, System.Reactive.Disposables.CompositeDisposable).item').
+[T](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,CompositeDisposable).T 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, CompositeDisposable).T')  
+[item](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,CompositeDisposable).item 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, CompositeDisposable).item').
 
 #### Exceptions
 
 [System.ArgumentNullException](https://docs.microsoft.com/en-us/dotnet/api/System.ArgumentNullException 'System.ArgumentNullException')  
-[disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,System.Reactive.Disposables.CompositeDisposable).disposables 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, System.Reactive.Disposables.CompositeDisposable).disposables')
+[disposables](TechNoir.Reactive.md#TechNoir.Reactive.DisposableExtensions.DisposeWithComposite_T_(thisT,CompositeDisposable).disposables 'TechNoir.Reactive.DisposableExtensions.DisposeWithComposite<T>(this T, CompositeDisposable).disposables')
 
 <a name='TechNoir.Reactive.DisposableWrapper_T_'></a>
 

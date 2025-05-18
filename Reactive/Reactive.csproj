@@ -1,40 +1,63 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFrameworks>net472;netstandard2.0;net8.0;net9.0</TargetFrameworks>
-    <AssemblyName>TechNoir.Reactive</AssemblyName>
-    <RootNamespace>TechNoir.Reactive</RootNamespace>
-    <Copyright>Copyright © TechNoir 2022</Copyright>
-    <Description>Reactive Support</Description>
-    <Company>TechNoir</Company>
-    <Authors>Boone</Authors>
-    <PackageReleaseNotes>Document</PackageReleaseNotes>
-    <Version>1.0.4</Version>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseFile>License.txt</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/boone34/Reactive</PackageProjectUrl>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <RepositoryUrl>https://github.com/boone34/Reactive</RepositoryUrl>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
-    <DocumentationFile>C:\Users\boone\Documents\TechNoir\Projects\Reactive\Reactive\TechNoir.Reactive.xml</DocumentationFile>
-    <DefaultDocumentationGeneratedPages>Namespaces</DefaultDocumentationGeneratedPages>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="DefaultDocumentation" Version="0.8.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="System.Reactive" Version="6.0.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\License.txt">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFrameworks>net472;netstandard2.0;net8.0;net9.0</TargetFrameworks>
+        <AssemblyName>TechNoir.Reactive</AssemblyName>
+        <RootNamespace>TechNoir.Reactive</RootNamespace>
+        <Copyright>Copyright © TechNoir 2022</Copyright>
+        <Description>Reactive Support</Description>
+        <Company>TechNoir</Company>
+        <Authors>Boone</Authors>
+        <PackageReleaseNotes>Document</PackageReleaseNotes>
+        <Version>1.0.4</Version>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PackageLicenseFile>License.txt</PackageLicenseFile>
+        <PackageProjectUrl>https://github.com/boone34/Reactive</PackageProjectUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <RepositoryUrl>https://github.com/boone34/Reactive</RepositoryUrl>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <Configurations>Debug;Release;Nuget.Local;Nuget.Nuget</Configurations>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)'=='Nuget.Local'">
+        <Optimize>True</Optimize>
+        <DocumentationFile>C:\Users\boone\Documents\TechNoir\Projects\Reactive\Reactive\TechNoir.Reactive.xml</DocumentationFile>
+        <DefaultDocumentationGeneratedPages>Namespaces</DefaultDocumentationGeneratedPages>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <IncludeSymbols>True</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <NuGetPublishVersion>6.7.0</NuGetPublishVersion>
+        <NuGetPublishLocation>C:\Users\boone\Documents\TechNoir\NuGet\Packages</NuGetPublishLocation>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)'=='Nuget.Nuget'">
+        <Optimize>True</Optimize>
+        <DocumentationFile>C:\Users\boone\Documents\TechNoir\Projects\Reactive\Reactive\TechNoir.Reactive.xml</DocumentationFile>
+        <DefaultDocumentationGeneratedPages>Namespaces</DefaultDocumentationGeneratedPages>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <IncludeSymbols>True</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <NuGetPublishVersion>6.7.0</NuGetPublishVersion>
+        <NuGetPublishLocation>https://api.nuget.org/v3/index.json</NuGetPublishLocation>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="DefaultDocumentation"
+                          Version="0.8.2">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="System.Reactive"
+                          Version="6.0.1" />
+        <PackageReference Include="SS.NuGet.Publish"
+                          Version="1.0.2311.32">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\License.txt">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
 </Project>

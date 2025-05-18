@@ -7,6 +7,7 @@
     <Description>TechNoir.Reactive Test</Description>
     <Company>TechNoir</Company>
     <Authors>Boone</Authors>
+    <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
