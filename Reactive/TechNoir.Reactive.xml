@@ -209,12 +209,14 @@
             </summary>
             <returns><see cref="T:System.IDisposable" /> which should be disposed to decrement reference count.</returns>
         </member>
-        <member name="M:TechNoir.Reactive.RefCountSetResetDisposable.#ctor(System.Action,System.Action)">
+        <member name="M:TechNoir.Reactive.RefCountSetResetDisposable.#ctor(System.Action,System.Action,System.Nullable{System.TimeSpan},System.Threading.SynchronizationContext)">
             <summary>
             Initializes a new instance of the <see cref="T:TechNoir.Reactive.RefCountSetResetDisposable"/> class.
             </summary>
             <param name="set">Action to be performed when this is set the first time.</param>
             <param name="reset">Action to be performed when this is disposed the last time (when reference count == 0).</param>
+            <param name="first_set_delay">Delay on first set, if disposed before <see cref="M:TechNoir.Reactive.RefCountSetResetDisposable.Set"/> is not called.</param>
+            <param name="synchronization_context">If delayed context to use to invoke <see cref="M:TechNoir.Reactive.RefCountSetResetDisposable.Set"/>.</param>
         </member>
     </members>
 </doc>
